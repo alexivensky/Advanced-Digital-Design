@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdint.h>
+
+int main(void) {
+	uint32_t *regmap = (uint32_t *)0x43C00000;
+	/*
+	for (size_t i = 0; i < 16; i++) {
+		for (size_t j = 0; j < 16; j++) {
+			regmap[0] = i;
+			regmap[1] = j;
+			regmap[2] = 0;
+			size_t s = regmap[0];
+			printf("%2zu + %2zu = %3zu (%s)\n",i,j,s,(s==i+j)?"COR":"ERR");
+		}
+	} */
+	int s, c;
+	//1+1=2
+	regmap[0] = 1;
+	regmap[1] = 1;
+	regmap[2] = 0;
+	s = regmap[0];
+	c = regmap[2];
+	printf(s == 2 ? "S 1 COR\n" : "S 1 ERR\n");
+	printf(c == 0 ? "C 1 COR\n" : "C 1 ERR\n");
+	//30+67=97
+	regmap[0] = 30;
+	regmap[1] = 67;
+	regmap[2] = 0;
+	s = regmap[0];
+	c = regmap[2];
+	printf(s == 97 ? "S 2 COR\n" : "S 2 ERR\n");
+	printf(c == 0 ? "C 2 COR\n" : "C 2 ERR\n");
+	//(2^32 - 1) + (2^32 - 1) = (2^32 - 2) + cout
+	regmap[0] = 0xFFFFFFFF;
+	regmap[1] = 0xFFFFFFFF;
+	regmap[2] = 0;
+	s = regmap[0];
+	c = regmap[2];
+	printf(s == 0xFFFFFFFE ? "S 3 COR\n" : "S 3 ERR\n");
+	printf(c == 1 ? "C 3 COR\n" : "C 3 ERR\n");
+
+	return 0;
+}

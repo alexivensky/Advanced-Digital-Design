@@ -1,0 +1,15 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,axi_vip_v1_1_4;processing_system7_vip_v1_0_6;xilinx_vip,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sim_1/new/alu_tb.vhd,1706843797,vhdl,,,,alu_tb,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sim_1/new/comp_tb.vhd,1706841276,vhdl,,,,comp_tb,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sim_1/new/logical_tb.vhd,1706824259,vhdl,,,,logical_tb,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sim_1/new/shift_tb.vhd,1706830736,vhdl,,,,shift_tb,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/imports/src/Arith_Unit.vhd,1706633614,vhdl,,,,arith_unit,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/new/ALU_Comp.vhd,1706718112,vhdl,,,,alu_comp,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/new/ALU_Logical.vhd,1706645664,vhdl,,,,alu_logical,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/new/ALU_Mux.vhd,1706719004,vhdl,,,,alu_mux,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/new/ALU_Shift.vhd,1706719191,vhdl,,,,alu_shift,,,,,,,,
+C:/Users/alexivensky/ADDLabs/Lab-2/lab_2/lab_2.srcs/sources_1/new/alu.vhd,1706724324,vhdl,,,,alu,,,,,,,,

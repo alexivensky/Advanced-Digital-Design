@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(void) {
+	uint32_t *regmap = (uint32_t *) 0x70000000;
+	// REGMAP:
+	// 	#	bits	in		out
+	//	0	32		R		A
+	//	1	32				B
+	//	2	4				SHAMT
+	//	3	3				ALUOp
+	//	4	1		Zero
+	//	5	1		Overflow
+	int z, o, r;
+	// add signed
+	regmap[3] = 0b0100;
+	regmap[0] = 0x000001BA;
+	regmap[1] = 0xFFFFEE4B;
+	regmap[2] = 0b00000;
+	z = regmap[4];
+	o = regmap[5];
+	r = regmap[0];
+	printf("Case 1: Z: %s, O: %s, R: %s\n", (z==0?"C":"E"),(c==0?"C":"E"),(R==0xFFFFF005?"C":"E"));
+
+
+	return 0;
+}

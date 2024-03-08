@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdint.h>
+
+int main(void) {
+	uint32_t *regmap = (uint32_t *)0x43C00000;
+	/*
+	for (size_t i = 0; i < 16; i++) {
+		for (size_t j = 0; j < 16; j++) {
+			regmap[0] = i;
+			regmap[1] = j;
+			regmap[2] = 0;
+			size_t s = regmap[0];
+			printf("%2zu + %2zu = %3zu (%s)\n",i,j,s,(s==i+j)?"COR":"ERR");
+		}
+	} */
+
+	//1+1=2
+	regmap[0] = 1;
+	regmap[1] = 1;
+	regmap[2] = 0;
+	int s = regmap[0];
+	int c = regmap[2];
+	printf(s == 2 ? "S 1 COR" : "S 1 ERR");
+	printf(c == 0 ? "C 1 COR" : "C 1 ERR");
+
+
+	return 0;
+}

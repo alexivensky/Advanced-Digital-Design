@@ -1,0 +1,13 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,axi_vip_v1_1_4;processing_system7_vip_v1_0_6;xilinx_vip,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/imports/new/adder_subtractor.vhd,1705948534,vhdl,,,,adder_subtractor,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/imports/new/fulladder.vhd,1705514837,vhdl,,,,fulladder,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/control.vhd,1708103592,vhdl,,,,control,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/left_shift_reg.vhd,1708102814,vhdl,,,,left_shift_reg,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/mult_dflow.vhd,1708047811,vhdl,,,,mult_dflow,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/multiplier.vhd,1708044745,vhdl,,,,multiplier,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/right_reg.vhd,1708102742,vhdl,,,,right_reg,,,,,,,,
+C:/Users/alexivensky/ADDLabs/lab_3/lab_3.srcs/sources_1/new/sync_register.vhd,1707948581,vhdl,,,,sync_register,,,,,,,,

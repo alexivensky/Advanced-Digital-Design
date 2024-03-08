@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(void) {
+	uint32_t *regmap = (uint32_t *) 0x70000000;
+	// REGMAP:
+	// 	#	bits	in		out
+	//	0	32		R		A
+	//	1	32				B
+	//	2	4				SHAMT
+	//	3	3				ALUOp
+	//	4	1		Zero
+	//	5	1		Overflow
+
+	// add signed
+	regmap[3] = 0b0100;
+
+
+	return 0;
+}

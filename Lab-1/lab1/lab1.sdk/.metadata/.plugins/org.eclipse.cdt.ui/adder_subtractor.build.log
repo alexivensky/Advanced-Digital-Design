@@ -1,0 +1,23 @@
+11:20:02 **** Incremental Build of configuration Debug for project adder_subtractor ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/adder_subtractor.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adder_subtractor.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../adder_subtractor_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/adder_subtractor.d" -MT"src/adder_subtractor.o" -o "src/adder_subtractor.o" "../src/adder_subtractor.c"
+'Finished building: ../src/adder_subtractor.c'
+' '
+'Building target: adder_subtractor.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../adder_subtractor_bsp/ps7_cortexa9_0/lib -o "adder_subtractor.elf"  ./src/adder_subtractor.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: adder_subtractor.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size adder_subtractor.elf  |tee "adder_subtractor.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  72036	   2580	  23328	  97944	  17e98	adder_subtractor.elf
+'Finished building: adder_subtractor.elf.size'
+' '
+
+11:20:03 Build Finished (took 1s.108ms)
+

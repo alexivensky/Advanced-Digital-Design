@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alexivensky/ADDLabs/Pre-Lab/Pre-Lab/Pre-Lab.srcs/sources_1/imports/Downloads/pre_lab.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pre_lab'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alexivensky/ADDLabs/Pre-Lab/Pre-Lab/Pre-Lab.srcs/sources_1/imports/Downloads/pre_lab_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pre_lab_tb'
