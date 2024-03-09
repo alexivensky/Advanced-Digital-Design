@@ -4,7 +4,7 @@ USE ieee.numeric_std.all;
 
 entity sync_register is
     generic (
-        n : positive := 32
+        n : positive := 64
     );
     port (
         CLK     : IN     std_logic;

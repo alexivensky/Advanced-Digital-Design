@@ -4,30 +4,4 @@ Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 83d0393544
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.program_counter [program_counter_default]
-Compiling architecture behavioral of entity xil_defaultlib.InstructionRegister [instructionregister_default]
-Compiling architecture behavioral of entity xil_defaultlib.sync_register [sync_register_default]
-Compiling architecture behavioral of entity xil_defaultlib.register_file [register_file_default]
-Compiling architecture dataflow of entity xil_defaultlib.ALU_Logical [alu_logical_default]
-Compiling architecture struct of entity xil_defaultlib.Arith_Unit [arith_unit_default]
-Compiling architecture dataflow of entity xil_defaultlib.ALU_Comp [alu_comp_default]
-Compiling architecture dataflow of entity xil_defaultlib.ALU_Shift [alu_shift_default]
-Compiling architecture dataflow of entity xil_defaultlib.ALU_Mux [alu_mux_default]
-Compiling architecture dataflow of entity xil_defaultlib.alu [alu_default]
-Compiling architecture behavioral of entity xil_defaultlib.sign_extend [sign_extend_default]
-Compiling architecture behavioral of entity xil_defaultlib.CLO [clo_default]
-Compiling architecture behavioral of entity xil_defaultlib.cpu_dataflow [cpu_dataflow_default]
-Compiling architecture behavioral of entity xil_defaultlib.CPU_no_mem [cpu_no_mem_default]
-Compiling architecture struct of entity xil_defaultlib.CPU_memory [cpu_memory_default]
-Compiling architecture behavioral of entity xil_defaultlib.cpu_tb
-Built simulation snapshot cpu_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

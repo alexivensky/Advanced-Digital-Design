@@ -10,6 +10,7 @@ entity control_unit is
         Opcode : in std_logic_vector(5 downto 0);
         I_5to0 : in std_logic_vector(5 downto 0);
         I_10to6 : in std_logic_vector(4 downto 0);
+        MultDone : in std_logic;
         PCWriteCond : out std_logic;
         PCWrite : out std_logic;
         IorD : out std_logic;
@@ -20,14 +21,17 @@ entity control_unit is
         PCSource : out std_logic_vector(1 downto 0);
         ALUOp : out std_logic_vector(3 downto 0);
         ALUSrcA : out std_logic;
-        ALUSrcB : out std_logic_vector(1 downto 0);
+        ALUSrcB : out std_logic_vector(2 downto 0);
         RegAEn : out std_logic;
         RegBEn : out std_logic;
+        HIEn : out std_logic;
+        LOEn : out std_logic;
         MemDataRegEn : out std_logic;
         ALUOutEn : out std_logic;
         RegWrite : out std_logic;
         RegDst : out std_logic;
-        SHAMT_Sel : out std_logic
+        SHAMT_Sel : out std_logic;
+        Mult_Reset : out std_logic
     );
 end control_unit;
 
@@ -46,11 +50,13 @@ architecture Behavioral of control_unit is
         -- MemAddrComp : Memory Address Computation
         -- MemComp : Memory Completion
         -- CLOExec : CLO Execution 
+        -- MultExec : Multiplication Execution
+        -- WBHILO : Write-Back HI and LO
 	type state_type is (
 	   IFetch, IDecode, ExecIType, ITypeComp,
 	   ExecRType, RTypeComp, BComp, JComp,
 	   LMemAccess, SMemAccess, MemAddrComp, MemComp,
-	   CLOExec
+	   CLOExec, MultExec, WBHILO
 	);
 	signal state : state_type;
 begin
@@ -58,7 +64,8 @@ begin
     begin
         if (rst = '1') then
             state <= IFetch;
-        elsif (rising_edge(clk)) then 
+            Mult_Reset <= '1';
+        elsif (rising_edge(clk)) then
             case state is 
                 when IFetch =>
                     state <= IDecode;
@@ -68,6 +75,10 @@ begin
                     elsif (Opcode = "000000") then -- R-Type: ADD, AND, SUB, SRA, SLL, SLLV
                         if (I_5to0 = "001000") then -- JR
                             state <= JComp;
+                        elsif (I_5to0 = "011001") then -- MULTU
+                            state <= MultExec;
+                        elsif (I_5to0 = "010000" or I_5to0 = "010010") then -- MFHI, MFLO
+                            state <= IFetch;
                         else
                             state <= ExecRType;
                         end if;
@@ -108,6 +119,14 @@ begin
                     state <= IFetch;
                 when CLOExec =>
                     state <= IFetch;
+                when MultExec =>
+                    if (MultDone = '0') then 
+                        state <= MultExec;
+                    else 
+                        state <= WBHILO;
+                    end if;
+                when WBHILO =>
+                    state <= IFetch;
             end case;
         end if;  
     end process;
@@ -127,7 +146,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0101";
                 ALUSrcA <= '0';
-                ALUSrcB <= "01";
+                ALUSrcB <= "001";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -135,6 +154,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- INSTRUCTION DECODE
             when IDecode =>
                 ---- I-Type Decode ----
@@ -150,7 +172,7 @@ begin
                     PCSource <= "00";
                     ALUOp <= "0000";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "00";
+                    ALUSrcB <= "000";
                     RegAEn <= '1';
                     RegBEn <= '0';
                     MemDataRegEn <= '0';
@@ -158,28 +180,62 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
-                ---- R-Type Decode ----
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
+                ---- R-Type and SPECIAL Decode ----
                 elsif (Opcode = "000000") then
-                    PCWriteCond <= '0';
-                    PCWrite <= '0';
-                    IorD <= '0';
-                    MemRead <= '0';
-                    MemWrite <= '0';
-                    MemtoReg <= "000";
-                    IRWrite <= '0';
-                    PCSource <= "00";
-                    ALUOp <= "0000";
-                    ALUSrcA <= '0';
-                    ALUSrcB <= "00";
-                    RegAEn <= '1';
-                    if (I_5to0 = "001000") then RegBEn <= '0'; -- for JR 
-                                           else RegBEn <= '1';
+                    if (I_5to0 /= "010000" and I_5to0 /= "010010") then
+                        PCWriteCond <= '0';
+                        PCWrite <= '0';
+                        IorD <= '0';
+                        MemRead <= '0';
+                        MemWrite <= '0';
+                        MemtoReg <= "000";
+                        IRWrite <= '0';
+                        PCSource <= "00";
+                        ALUOp <= "0000";
+                        ALUSrcA <= '0';
+                        ALUSrcB <= "000";
+                        RegAEn <= '1';
+                        if (I_5to0 = "001000") then RegBEn <= '0'; -- for JR 
+                                               else RegBEn <= '1'; -- all R-Type and MULTU
+                        end if;
+                        MemDataRegEn <= '0';
+                        ALUOutEn <= '0';
+                        RegWrite <= '0';
+                        RegDst <= '0';
+                        SHAMT_Sel <= '0';
+                        HIEn <= '0';
+                        LOEn <= '0';
+                        Mult_Reset <= '1';
+                    else
+                        PCWriteCond <= '0';
+                        PCWrite <= '0';
+                        IorD <= '0';
+                        MemRead <= '0';
+                        MemWrite <= '0';
+                        if (I_5to0 = "010000") then
+                            MemtoReg <= "101";
+                        else
+                            MemtoReg <= "110";
+                        end if;
+                        IRWrite <= '0';
+                        PCSource <= "00";
+                        ALUOp <= "0000";
+                        ALUSrcA <= '0';
+                        ALUSrcB <= "000";
+                        RegAEn <= '0';
+                        RegBEn <= '0';
+                        MemDataRegEn <= '0';
+                        ALUOutEn <= '0';
+                        RegWrite <= '1';
+                        RegDst <= '1';
+                        SHAMT_Sel <= '0';
+                        HIEn <= '0';
+                        LOEn <= '0';
+                        Mult_Reset <= '0';
                     end if;
-                    MemDataRegEn <= '0';
-                    ALUOutEn <= '0';
-                    RegWrite <= '0';
-                    RegDst <= '0';
-                    SHAMT_Sel <= '0';
                 ---- J-Type Decode ----
                 elsif (Opcode = "000010") then -- J
                     PCWriteCond <= '0';
@@ -192,7 +248,7 @@ begin
                     PCSource <= "10";
                     ALUOp <= "0000";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "00";
+                    ALUSrcB <= "000";
                     RegAEn <= '0';
                     RegBEn <= '0';
                     MemDataRegEn <= '0';
@@ -200,6 +256,9 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
                 ---- Branch Decode ----
                 elsif (Opcode = "000101") then -- BNE
                     PCWriteCond <= '0';
@@ -212,7 +271,7 @@ begin
                     PCSource <= "00";
                     ALUOp <= "0100";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "11";
+                    ALUSrcB <= "011";
                     RegAEn <= '1';
                     RegBEn <= '1';
                     MemDataRegEn <= '0';
@@ -220,6 +279,9 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
                 ---- Load Decode ----
                 elsif (Opcode = "100011" or Opcode = "100001") then -- LW or LH
                     PCWriteCond <= '0';
@@ -232,7 +294,7 @@ begin
                     PCSource <= "00";
                     ALUOp <= "0000";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "00";
+                    ALUSrcB <= "000";
                     RegAEn <= '1';
                     RegBEn <= '0';
                     MemDataRegEn <= '0';
@@ -240,6 +302,9 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
                 ---- Store Decode ----
                 elsif (Opcode = "101011") then
                     PCWriteCond <= '0';
@@ -252,7 +317,7 @@ begin
                     PCSource <= "00";
                     ALUOp <= "0000";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "00";
+                    ALUSrcB <= "000";
                     RegAEn <= '1';
                     RegBEn <= '1';
                     MemDataRegEn <= '0';
@@ -260,6 +325,9 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
                 ---- CLO Decode ----
                 elsif (Opcode = "011100" and I_5to0 = "100001") then
                     PCWriteCond <= '0';
@@ -272,7 +340,7 @@ begin
                     PCSource <= "00";
                     ALUOp <= "0000";
                     ALUSrcA <= '0';
-                    ALUSrcB <= "00";
+                    ALUSrcB <= "000";
                     RegAEn <= '1';
                     RegBEn <= '0';
                     MemDataRegEn <= '0';
@@ -280,6 +348,9 @@ begin
                     RegWrite <= '0';
                     RegDst <= '0';
                     SHAMT_Sel <= '0';
+                    HIEn <= '0';
+                    LOEn <= '0';
+                    Mult_Reset <= '0';
                 end if;
             -- I-TYPE EXECUTION
             when ExecIType =>
@@ -299,7 +370,11 @@ begin
                     ALUOp <= "1010"; -- SLTU
                 end if;
                 ALUSrcA <= '1';
-                ALUSrcB <= "10";
+                if (Opcode /= "001101") then
+                    ALUSrcB <= "010"; -- sign extended
+                else
+                    ALUSrcB <= "100"; -- zero extended
+                end if;
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -307,6 +382,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- R-TYPE EXECUTION
             when ExecRType =>
                 PCWriteCond <= '0';
@@ -337,13 +415,16 @@ begin
                     SHAMT_Sel <= '1';
                 end if;
                 ALUSrcA <= '1';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
                 ALUOutEn <= '1';
                 RegWrite <= '0';
                 RegDst <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- MEMORY ADDRESS COMPUTATION
             when MemAddrComp =>
                 PCWriteCond <= '0';
@@ -356,7 +437,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0101";
                 ALUSrcA <= '1';
-                ALUSrcB <= "10";
+                ALUSrcB <= "010";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -364,6 +445,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- LOAD INSTRUCTION MEMORY ACCESS
             when LMemAccess =>
                 PCWriteCond <= '0';
@@ -376,7 +460,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '1';
@@ -384,6 +468,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- STORE INSTRUCTION MEMORY ACCESS
             when SMemAccess =>
                 PCWriteCond <= '0';
@@ -396,7 +483,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -404,6 +491,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- CLO EXECUTION
             when CLOExec =>
                 PCWriteCond <= '0';
@@ -416,7 +506,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -424,6 +514,9 @@ begin
                 RegWrite <= '1';
                 RegDst <= '1';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- BRANCH COMPLETION 
             when BComp =>
                 PCWriteCond <= '1';
@@ -436,7 +529,7 @@ begin
                 PCSource <= "01";
                 ALUOp <= "0110";
                 ALUSrcA <= '1';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -444,6 +537,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- I-TYPE COMPLETION
             when ITypeComp =>
                 PCWriteCond <= '0';
@@ -461,7 +557,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -469,6 +565,9 @@ begin
                 RegWrite <= '1';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- R-TYPE COMPLETION
             when RTypeComp =>
                 PCWriteCond <= '0';
@@ -481,7 +580,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -489,6 +588,9 @@ begin
                 RegWrite <= '1';
                 RegDst <= '1';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- JUMP COMPLETION
             when JComp =>
                 PCWriteCond <= '0';
@@ -501,7 +603,7 @@ begin
                 PCSource <= "11";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -509,6 +611,9 @@ begin
                 RegWrite <= '0';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
             -- MEMORY COMPLETION
             when MemComp =>
                 PCWriteCond <= '0';
@@ -525,7 +630,7 @@ begin
                 PCSource <= "00";
                 ALUOp <= "0000";
                 ALUSrcA <= '0';
-                ALUSrcB <= "00";
+                ALUSrcB <= "000";
                 RegAEn <= '0';
                 RegBEn <= '0';
                 MemDataRegEn <= '0';
@@ -533,6 +638,55 @@ begin
                 RegWrite <= '1';
                 RegDst <= '0';
                 SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
+            -- MULTIPLICATION EXECUTION 
+            when MultExec =>
+                PCWriteCond <= '0';
+                PCWrite <= '0';
+                IorD <= '0';
+                MemRead <= '0';
+                MemWrite <= '0';
+                MemtoReg <= "000";
+                IRWrite <= '0';
+                PCSource <= "00";
+                ALUOp <= "0000";
+                ALUSrcA <= '0';
+                ALUSrcB <= "000";
+                RegAEn <= '0';
+                RegBEn <= '0';
+                MemDataRegEn <= '0';
+                ALUOutEn <= '0';
+                RegWrite <= '0';
+                RegDst <= '0';
+                SHAMT_Sel <= '0';
+                HIEn <= '0';
+                LOEn <= '0';
+                Mult_Reset <= '0';
+            -- WRITE-BACK HI AND LO
+            when WBHILO =>
+                PCWriteCond <= '0';
+                PCWrite <= '0';
+                IorD <= '0';
+                MemRead <= '0';
+                MemWrite <= '0';
+                MemtoReg <= "000";
+                IRWrite <= '0';
+                PCSource <= "00";
+                ALUOp <= "0000";
+                ALUSrcA <= '0';
+                ALUSrcB <= "000";
+                RegAEn <= '0';
+                RegBEn <= '0';
+                MemDataRegEn <= '0';
+                ALUOutEn <= '0';
+                RegWrite <= '0';
+                RegDst <= '0';
+                SHAMT_Sel <= '0';
+                HIEn <= '1';
+                LOEn <= '1';
+                Mult_Reset <= '0';
         end case;
     end process;
 end Behavioral;

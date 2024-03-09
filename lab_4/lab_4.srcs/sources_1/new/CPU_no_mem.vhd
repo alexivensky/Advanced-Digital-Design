@@ -22,7 +22,7 @@ architecture Behavioral of CPU_no_mem is
             Opcode : in std_logic_vector(5 downto 0);
             I_5to0 : in std_logic_vector(5 downto 0);
             I_10to6 : in std_logic_vector(4 downto 0);
-            SHAMT_Sel : out std_logic;
+            MultDone : in std_logic;
             PCWriteCond : out std_logic;
             PCWrite : out std_logic;
             IorD : out std_logic;
@@ -33,13 +33,17 @@ architecture Behavioral of CPU_no_mem is
             PCSource : out std_logic_vector(1 downto 0);
             ALUOp : out std_logic_vector(3 downto 0);
             ALUSrcA : out std_logic;
-            ALUSrcB : out std_logic_vector(1 downto 0);
+            ALUSrcB : out std_logic_vector(2 downto 0);
             RegAEn : out std_logic;
             RegBEn : out std_logic;
+            HIEn : out std_logic;
+            LOEn : out std_logic;
             MemDataRegEn : out std_logic;
             ALUOutEn : out std_logic;
             RegWrite : out std_logic;
-            RegDst : out std_logic
+            RegDst : out std_logic;
+            SHAMT_Sel : out std_logic;
+            Mult_Reset : out std_logic
         );
     end component;
     component cpu_dataflow is
@@ -51,28 +55,33 @@ architecture Behavioral of CPU_no_mem is
             IorD : in std_logic;
             MemtoReg : in std_logic_vector(2 downto 0);
             IRWrite : in std_logic;
+            MemDataRegEn : in std_logic;
             PCSource : in std_logic_vector(1 downto 0);
             ALUOp : in std_logic_vector(3 downto 0);
             ALUSrcA : in std_logic;
-            ALUSrcB : in std_logic_vector(1 downto 0);
+            ALUSrcB : in std_logic_vector(2 downto 0);
             RegAEn : in std_logic;
             RegBEn : in std_logic;
-            MemDataRegEn : in std_logic;
+            HIEn : in std_logic;
+            LOEn : in std_logic;
             ALUOutEn : in std_logic;
             RegWrite : in std_logic;
             RegDst : in std_logic;
             MemDataIn : in std_logic_vector(31 downto 0);
             SHAMT_Sel : in std_logic;
+            Mult_Reset : in std_logic;
             MemAddrOut : out std_logic_vector(31 downto 0);
             MemDataOut : out std_logic_vector(31 downto 0);
             Opcode : out std_logic_vector(5 downto 0);
             I_5to0 : out std_logic_vector(5 downto 0);
-            I_10to6 : out std_logic_vector(4 downto 0)
+            I_10to6 : out std_logic_vector(4 downto 0);
+            MultDone : out std_logic
         );
     end component;
-    signal PCWriteCond, PCWrite, IorD, IRWrite, ALUSrcA, RegAEn, RegBEn, MemDataRegEn, ALUOutEn, RegWrite, RegDst, MemWriteSig, SHAMT_Sel : std_logic;
-    signal PCSource, ALUSrcB : std_logic_vector(1 downto 0);
-    signal MemtoReg : std_logic_vector(2 downto 0);
+    signal PCWriteCond, PCWrite, IorD, IRWrite, ALUSrcA, RegAEn, RegBEn, MemDataRegEn, 
+           ALUOutEn, RegWrite, RegDst, MemWriteSig, SHAMT_Sel, HIEn, LOEn, MultDone, Mult_Reset : std_logic;
+    signal PCSource : std_logic_vector(1 downto 0);
+    signal MemtoReg, ALUSrcB : std_logic_vector(2 downto 0);
     signal ALUOp : std_logic_vector(3 downto 0);
     signal I_10to6 : std_logic_vector(4 downto 0);
     signal Opcode, I_5to0 : std_logic_vector(5 downto 0);
@@ -104,7 +113,9 @@ begin
         ALUOutEn => ALUOutEn,
         RegWrite => RegWrite,
         RegDst => RegDst,
-        SHAMT_Sel => SHAMT_Sel
+        SHAMT_Sel => SHAMT_Sel,
+        MultDone => MultDone,
+        HIEn => HIEn, LOEn => LOEn, Mult_Reset => Mult_Reset
     );
     dflow : cpu_dataflow port map (
         clk => clock,
@@ -130,7 +141,9 @@ begin
         MemDataIn => MemoryDataIn,
         MemAddrOut => MemoryAddress,
         MemDataOut => MemoryDataOut,
-        SHAMT_Sel => SHAMT_Sel
+        SHAMT_Sel => SHAMT_Sel,
+        MultDone => MultDone,
+        HIEn => HIEn, LOEn => LOEn, Mult_Reset => Mult_Reset
     );
 
 end Behavioral;

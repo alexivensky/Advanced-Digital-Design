@@ -17,19 +17,23 @@ entity cpu_dataflow is
         PCSource : in std_logic_vector(1 downto 0);
         ALUOp : in std_logic_vector(3 downto 0);
         ALUSrcA : in std_logic;
-        ALUSrcB : in std_logic_vector(1 downto 0);
+        ALUSrcB : in std_logic_vector(2 downto 0);
         RegAEn : in std_logic;
         RegBEn : in std_logic;
+        HIEn : in std_logic;
+        LOEn : in std_logic;
         ALUOutEn : in std_logic;
         RegWrite : in std_logic;
         RegDst : in std_logic;
         MemDataIn : in std_logic_vector(31 downto 0);
         SHAMT_Sel : in std_logic;
+        Mult_Reset : in std_logic;
         MemAddrOut : out std_logic_vector(31 downto 0);
         MemDataOut : out std_logic_vector(31 downto 0);
         Opcode : out std_logic_vector(5 downto 0);
         I_5to0 : out std_logic_vector(5 downto 0);
-        I_10to6 : out std_logic_vector(4 downto 0)
+        I_10to6 : out std_logic_vector(4 downto 0);
+        MultDone : out std_logic
     );
 end cpu_dataflow;
 
@@ -94,6 +98,16 @@ architecture Behavioral of cpu_dataflow is
             ones : out std_logic_vector(31 downto 0)
         );
     end component;
+    component multiplier is
+        port (
+            A : in std_logic_vector(31 downto 0);
+            B : in std_logic_vector(31 downto 0);
+            clk : in std_logic;
+            rst : in std_logic;
+            R : out std_logic_vector(63 downto 0);
+            done : out std_logic
+        );
+    end component;
     signal ALUResult, ALUOut, PC_D, PC_out, CLO_out : std_logic_vector(31 downto 0);
     signal PC_en, ALUZero : std_logic;
     signal I_31to26 : std_logic_vector(5 downto 0);
@@ -102,7 +116,8 @@ architecture Behavioral of cpu_dataflow is
     signal write_reg : std_logic_vector(4 downto 0);
     signal memDataRegOut, write_data, read_data_1, read_data_2 : std_logic_vector(31 downto 0);
     signal regAOut, regBout : std_logic_vector(31 downto 0);
-    signal ALU_Ain, ALU_Bin, sign_ex_out : std_logic_vector(31 downto 0);
+    signal ALU_Ain, ALU_Bin, sign_ex_out, HI_out, LO_out : std_logic_vector(31 downto 0);
+    signal MultResult : std_logic_vector(63 downto 0);
     signal SHAMT : std_logic_vector(4 downto 0);
     
 begin
@@ -208,6 +223,10 @@ begin
                 write_data <= ALUOut(15 downto 0) & "0000000000000000"; -- for LUI
             when "100" =>
                 write_data <= CLO_out;
+            when "101" =>
+                write_data <= HI_out;
+            when "110" =>
+                write_data <= LO_out;
             when others =>
                 write_data <= (others => '0');
         end case;
@@ -255,17 +274,19 @@ begin
     end process;
     
     -- MUX for ALU Input B
-    ALUSrcB_MUX : process (regBOut, sign_ex_out, ALUSrcB)
+    ALUSrcB_MUX : process (regBOut, sign_ex_out, I_15to0, ALUSrcB)
     begin
         case ALUSrcB is 
-            when "00" =>
+            when "000" =>
                 ALU_Bin <= regBOut;
-            when "01" =>
+            when "001" =>
                 ALU_Bin <= std_logic_vector(to_unsigned(4, 32));
-            when "10" =>
+            when "010" =>
                 ALU_Bin <= sign_ex_out;
-            when "11" =>
+            when "011" =>
                 ALU_Bin <= sign_ex_out(29 downto 0) & "00";
+            when "100" =>
+                ALU_Bin <= "0000000000000000" & I_15to0;
             when others =>
                 ALU_Bin <= (others => '0');
         end case;
@@ -312,5 +333,29 @@ begin
     clo_unit : CLO port map (
         A => regAOut,
         ones => CLO_out
+    );
+    
+    -- multiplier
+    mult : multiplier port map (
+        A => regAOut,
+        B => regBOut,
+        clk => clk,
+        rst => Mult_Reset,
+        R => MultResult,
+        done => MultDone
+    );
+    
+    -- hi and lo registers
+    hi : sync_register port map (
+        clk => clk, rst => rst,
+        EN => HIen,
+        D => MultResult(63 downto 32),
+        Q => HI_out
+    );
+    lo : sync_register port map (
+        clk => clk, rst => rst,
+        EN => LOen,
+        D => MultResult(31 downto 0),
+        Q => LO_out
     );
 end Behavioral;
