@@ -106,8 +106,8 @@ run 100 ns
 # Test 10 - RUN SEPARATELY
 
 # multu $1, $2
-# mfhi $3 000000 00 0000 0000 00011 010000
-# mflo $4 000000 00 0000 0000 00100 010010
+# mfhi $3 000000 00 0000 0000 00011 00000 010000
+# mflo $4 000000 00 0000 0000 00100 00000 010010
 
 restart
 
@@ -124,8 +124,8 @@ add_force {/cpu_tb/cpu/dflow/reg_file/registers[2]} -radix hex {F1234567}
 
 # you can use any of the following commands as an example on how to initilaize a memory location with a value
 add_force {/cpu_tb/U_1/mw_U_0ram_table[0]} -radix hex {00220019} 
-add_force {/cpu_tb/U_1/mw_U_0ram_table[1]} -radix hex {000000D0} 
-add_force {/cpu_tb/U_1/mw_U_0ram_table[2]} -radix hex {00000112} 
+add_force {/cpu_tb/U_1/mw_U_0ram_table[1]} -radix hex {00001810} 
+add_force {/cpu_tb/U_1/mw_U_0ram_table[2]} -radix hex {00002012} 
 add_force {/cpu_tb/U_1/mw_U_0ram_table[3]} -radix hex {00000000}
 add_force {/cpu_tb/U_1/mw_U_0ram_table[4]} -radix hex {00000000}
 add_force {/cpu_tb/U_1/mw_U_0ram_table[5]} -radix hex {00000000}
@@ -138,4 +138,9 @@ add_force reset 1
 run 5 ns
 add_force reset 0
 
-run 1000 us
+while {[get_value -radix bin /cpu_tb/cpu/dflow/MultDone] != 1} {
+incr cnt
+run 10 ns
+}
+
+run 100 ns

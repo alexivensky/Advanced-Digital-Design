@@ -185,7 +185,7 @@ begin
                     Mult_Reset <= '0';
                 ---- R-Type and SPECIAL Decode ----
                 elsif (Opcode = "000000") then
-                    if (I_5to0 /= "010000" and I_5to0 /= "010010") then
+                    if (I_5to0 /= "010000" and I_5to0 /= "010010") then -- every special BUT MFHI and MFLO
                         PCWriteCond <= '0';
                         PCWrite <= '0';
                         IorD <= '0';
@@ -209,15 +209,15 @@ begin
                         HIEn <= '0';
                         LOEn <= '0';
                         Mult_Reset <= '1';
-                    else
+                    else -- MFHI and MFLO :)
                         PCWriteCond <= '0';
                         PCWrite <= '0';
                         IorD <= '0';
                         MemRead <= '0';
                         MemWrite <= '0';
-                        if (I_5to0 = "010000") then
+                        if (I_5to0 = "010000") then -- MFHI
                             MemtoReg <= "101";
-                        else
+                        else -- MFLO
                             MemtoReg <= "110";
                         end if;
                         IRWrite <= '0';

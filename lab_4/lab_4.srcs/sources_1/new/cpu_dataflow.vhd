@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- dataflow for 32-bit MIPS CPU.
 -- created by Alex Ivensky for ECE 1195 - University of Pittsburgh
+-- note: most comments are notes to self and not necessarily descriptive of implementation
 entity cpu_dataflow is
     port (
         clk : in std_logic;
