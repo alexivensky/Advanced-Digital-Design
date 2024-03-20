@@ -1,0 +1,758 @@
+
+*** Running vivado
+    with args -log design_1_CPU_no_mem_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_CPU_no_mem_0_0.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source design_1_CPU_no_mem_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/alexivensky/ADDLabs/Lab_1_repo/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+Command: synth_design -top design_1_CPU_no_mem_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 18892 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 403.281 ; gain = 105.957
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_CPU_no_mem_0_0' [c:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/bd/design_1/ip/design_1_CPU_no_mem_0_0/synth/design_1_CPU_no_mem_0_0.vhd:68]
+INFO: [Synth 8-3491] module 'CPU_no_mem' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CPU_no_mem.vhd:6' bound to instance 'U0' of component 'CPU_no_mem' [c:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/bd/design_1/ip/design_1_CPU_no_mem_0_0/synth/design_1_CPU_no_mem_0_0.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'CPU_no_mem' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CPU_no_mem.vhd:17]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:6' bound to instance 'cont' of component 'control_unit' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CPU_no_mem.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (1#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:38]
+INFO: [Synth 8-3491] module 'cpu_dataflow' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:8' bound to instance 'dflow' of component 'cpu_dataflow' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CPU_no_mem.vhd:120]
+INFO: [Synth 8-638] synthesizing module 'cpu_dataflow' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:41]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:143]
+INFO: [Synth 8-3491] module 'program_counter' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/program_counter.vhd:5' bound to instance 'PC' of component 'program_counter' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'program_counter' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/program_counter.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'program_counter' (2#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/program_counter.vhd:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:169]
+INFO: [Synth 8-3491] module 'InstructionRegister' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/InstructionRegister.vhd:6' bound to instance 'instr_reg' of component 'InstructionRegister' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:180]
+INFO: [Synth 8-638] synthesizing module 'InstructionRegister' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/InstructionRegister.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'InstructionRegister' (3#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/InstructionRegister.vhd:17]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'mem_data_reg' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:189]
+INFO: [Synth 8-638] synthesizing module 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:18]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sync_register' (4#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:18]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:199]
+WARNING: [Synth 8-614] signal 'HI_out' is read in the process but is not in the sensitivity list [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:210]
+WARNING: [Synth 8-614] signal 'LO_out' is read in the process but is not in the sensitivity list [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:210]
+INFO: [Synth 8-3491] module 'register_file' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/register_file.vhd:6' bound to instance 'reg_file' of component 'register_file' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:237]
+INFO: [Synth 8-638] synthesizing module 'register_file' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/register_file.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'register_file' (5#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/register_file.vhd:15]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'reg_A' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:249]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'reg_B' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:257]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:267]
+INFO: [Synth 8-3491] module 'alu' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:5' bound to instance 'CPU_alu' of component 'alu' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:297]
+INFO: [Synth 8-638] synthesizing module 'alu' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:17]
+INFO: [Synth 8-3491] module 'ALU_Logical' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Logical.vhd:4' bound to instance 'LOG' of component 'ALU_Logical' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'ALU_Logical' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Logical.vhd:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Logical.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'ALU_Logical' (6#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Logical.vhd:13]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'Arith_Unit' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/src/Arith_Unit.vhd:9' bound to instance 'ARI' of component 'Arith_Unit' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:73]
+INFO: [Synth 8-638] synthesizing module 'Arith_Unit' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/src/Arith_Unit.vhd:27]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Arith_Unit' (7#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/src/Arith_Unit.vhd:27]
+INFO: [Synth 8-3491] module 'ALU_Comp' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Comp.vhd:4' bound to instance 'COM' of component 'ALU_Comp' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:82]
+INFO: [Synth 8-638] synthesizing module 'ALU_Comp' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Comp.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'ALU_Comp' (8#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Comp.vhd:15]
+INFO: [Synth 8-3491] module 'ALU_Shift' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Shift.vhd:4' bound to instance 'SHI' of component 'ALU_Shift' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:90]
+INFO: [Synth 8-638] synthesizing module 'ALU_Shift' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Shift.vhd:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Shift.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'ALU_Shift' (9#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Shift.vhd:13]
+INFO: [Synth 8-3491] module 'ALU_Mux' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Mux.vhd:4' bound to instance 'MUX' of component 'ALU_Mux' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'ALU_Mux' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Mux.vhd:12]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Mux.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'ALU_Mux' (10#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/ALU_Mux.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'alu' (11#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/alu.vhd:17]
+INFO: [Synth 8-3491] module 'sign_extend' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/sign_extend.vhd:6' bound to instance 'sign_ex' of component 'sign_extend' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:307]
+INFO: [Synth 8-638] synthesizing module 'sign_extend' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/sign_extend.vhd:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/sign_extend.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'sign_extend' (12#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/sign_extend.vhd:13]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'alu_out_reg' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:313]
+INFO: [Synth 8-226] default block is never used [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:323]
+INFO: [Synth 8-3491] module 'CLO' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CLO.vhd:6' bound to instance 'clo_unit' of component 'CLO' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:334]
+INFO: [Synth 8-638] synthesizing module 'CLO' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CLO.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'CLO' (13#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CLO.vhd:13]
+INFO: [Synth 8-3491] module 'multiplier' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/multiplier.vhd:6' bound to instance 'mult' of component 'multiplier' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:340]
+INFO: [Synth 8-638] synthesizing module 'multiplier' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/multiplier.vhd:17]
+INFO: [Synth 8-3491] module 'control' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/control.vhd:6' bound to instance 'CONT' of component 'control' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/multiplier.vhd:51]
+INFO: [Synth 8-638] synthesizing module 'control' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/control.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'control' (14#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/control.vhd:21]
+INFO: [Synth 8-3491] module 'mult_dflow' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:5' bound to instance 'MULT' of component 'mult_dflow' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/multiplier.vhd:63]
+INFO: [Synth 8-638] synthesizing module 'mult_dflow' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:22]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-3491] module 'left_shift_reg' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/left_shift_reg.vhd:6' bound to instance 'MCND' of component 'left_shift_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:78]
+INFO: [Synth 8-638] synthesizing module 'left_shift_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/left_shift_reg.vhd:20]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'left_shift_reg' (15#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/left_shift_reg.vhd:20]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-3491] module 'adder_subtractor' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:4' bound to instance 'adder' of component 'adder_subtractor' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:88]
+INFO: [Synth 8-638] synthesizing module 'adder_subtractor' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:17]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-638] synthesizing module 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'fulladder' (16#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:14]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'adders' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:34]
+INFO: [Synth 8-3491] module 'fulladder' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/fulladder.vhd:4' bound to instance 'a_n' of component 'fulladder' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'adder_subtractor' (17#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/adder_subtractor.vhd:17]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'PROD' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'sync_register__parameterized2' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:18]
+	Parameter n bound to: 64 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sync_register__parameterized2' (17#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:18]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'right_reg' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/right_reg.vhd:6' bound to instance 'MULT' of component 'right_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:105]
+INFO: [Synth 8-638] synthesizing module 'right_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/right_reg.vhd:20]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'right_reg' (18#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/right_reg.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'mult_dflow' (19#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/mult_dflow.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'multiplier' (20#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/multiplier.vhd:17]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'hi' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:350]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'sync_register' declared at 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/imports/new/sync_register.vhd:5' bound to instance 'lo' of component 'sync_register' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:356]
+INFO: [Synth 8-256] done synthesizing module 'cpu_dataflow' (21#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/cpu_dataflow.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'CPU_no_mem' (22#1) [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/CPU_no_mem.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'design_1_CPU_no_mem_0_0' (23#1) [c:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/bd/design_1/ip/design_1_CPU_no_mem_0_0/synth/design_1_CPU_no_mem_0_0.vhd:68]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[31]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[30]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[29]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[28]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[27]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[26]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[25]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[24]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[23]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[22]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[21]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[20]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[19]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[18]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[17]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[16]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[15]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[14]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[13]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[12]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[11]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[10]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[9]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[8]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[7]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[6]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[5]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[4]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[3]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[2]
+WARNING: [Synth 8-3331] design control has unconnected port MPLR_out[1]
+WARNING: [Synth 8-3331] design control_unit has unconnected port I_10to6[4]
+WARNING: [Synth 8-3331] design control_unit has unconnected port I_10to6[3]
+WARNING: [Synth 8-3331] design control_unit has unconnected port I_10to6[2]
+WARNING: [Synth 8-3331] design control_unit has unconnected port I_10to6[1]
+WARNING: [Synth 8-3331] design control_unit has unconnected port I_10to6[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 465.633 ; gain = 168.309
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 465.633 ; gain = 168.309
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 465.633 ; gain = 168.309
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 823.980 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 823.980 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.212 . Memory (MB): peak = 827.398 ; gain = 3.418
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 827.398 ; gain = 530.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 827.398 ; gain = 530.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 827.398 ; gain = 530.074
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'control_unit'
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemtoReg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemtoReg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MemtoReg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ALUOp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ALUOp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RegBEn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_2_in" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "registers_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'control'
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'PCWriteCond_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:138]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  ifetch |                             0000 |                             0000
+                 idecode |                             0001 |                             0001
+               execitype |                             0010 |                             0010
+               itypecomp |                             0011 |                             0011
+                   jcomp |                             0100 |                             0111
+                multexec |                             0101 |                             1101
+                  wbhilo |                             0110 |                             1110
+               execrtype |                             0111 |                             0100
+               rtypecomp |                             1000 |                             0101
+             memaddrcomp |                             1001 |                             1010
+              lmemaccess |                             1010 |                             1000
+                 memcomp |                             1011 |                             1011
+              smemaccess |                             1100 |                             1001
+                 cloexec |                             1101 |                             1100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'control_unit'
+WARNING: [Synth 8-327] inferring latch for variable 'PCWrite_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:139]
+WARNING: [Synth 8-327] inferring latch for variable 'IorD_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:140]
+WARNING: [Synth 8-327] inferring latch for variable 'MemRead_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:141]
+WARNING: [Synth 8-327] inferring latch for variable 'MemWrite_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:142]
+WARNING: [Synth 8-327] inferring latch for variable 'MemtoReg_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:143]
+WARNING: [Synth 8-327] inferring latch for variable 'IRWrite_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:144]
+WARNING: [Synth 8-327] inferring latch for variable 'PCSource_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:145]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUOp_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:146]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUSrcA_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:147]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUSrcB_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:148]
+WARNING: [Synth 8-327] inferring latch for variable 'RegAEn_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:149]
+WARNING: [Synth 8-327] inferring latch for variable 'RegBEn_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:150]
+WARNING: [Synth 8-327] inferring latch for variable 'HIEn_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:156]
+WARNING: [Synth 8-327] inferring latch for variable 'MemDataRegEn_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:151]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUOutEn_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:152]
+WARNING: [Synth 8-327] inferring latch for variable 'RegWrite_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:153]
+WARNING: [Synth 8-327] inferring latch for variable 'RegDst_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:154]
+WARNING: [Synth 8-327] inferring latch for variable 'SHAMT_Sel_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:155]
+WARNING: [Synth 8-327] inferring latch for variable 'Mult_Reset_reg' [C:/Users/alexivensky/ADDLabs/lab_4/lab_4.srcs/sources_1/new/control_unit.vhd:158]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   sload |                           000001 |                              000
+                      s0 |                           000010 |                              001
+                      s1 |                           000100 |                              010
+                      s2 |                           001000 |                              011
+                      s3 |                           010000 |                              100
+                      s4 |                           100000 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'control'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 827.398 ; gain = 530.074
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 3     
+	  27 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 192   
++---Registers : 
+	               64 Bit    Registers := 2     
+	               32 Bit    Registers := 41    
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 17    
+	   2 Input      6 Bit        Muxes := 4     
+	   6 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   3 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	  25 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   5 Input      3 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	  14 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 87    
+	   3 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 3     
+	  14 Input      1 Bit        Muxes := 20    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module control_unit 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	  25 Input      4 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	  14 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 23    
+	   3 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 3     
+	  14 Input      1 Bit        Muxes := 20    
+Module program_counter 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module InstructionRegister 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module sync_register 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module register_file 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 32    
+Module ALU_Logical 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+Module Arith_Unit 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module ALU_Shift 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 11    
+Module ALU_Mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+Module sign_extend 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module CLO 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
+	  27 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 30    
+Module control 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 2     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   6 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
+Module left_shift_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               64 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module fulladder 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
+Module adder_subtractor 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 64    
+Module sync_register__parameterized2 
+Detailed RTL Component Info : 
++---Registers : 
+	               64 Bit    Registers := 1     
+Module right_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module cpu_dataflow 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3886] merging instance 'U0/cont/PCWriteCond_reg' (LD) to 'U0/cont/MemRead_reg'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/cont/MemRead_reg )
+INFO: [Synth 8-3332] Sequential element (U0/cont/MemRead_reg) is unused and will be removed from module design_1_CPU_no_mem_0_0.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:01:02 . Memory (MB): peak = 844.371 ; gain = 547.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:25 ; elapsed = 00:01:36 . Memory (MB): peak = 844.371 ; gain = 547.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:01:37 . Memory (MB): peak = 844.371 ; gain = 547.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:28 ; elapsed = 00:01:39 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:31 ; elapsed = 00:01:42 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:31 ; elapsed = 00:01:42 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:31 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:31 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:31 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:31 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |     9|
+|2     |LUT1   |     1|
+|3     |LUT2   |    36|
+|4     |LUT3   |   153|
+|5     |LUT4   |    84|
+|6     |LUT5   |   321|
+|7     |LUT6   |   917|
+|8     |MUXF7  |   266|
+|9     |FDCE   |  1461|
+|10    |FDPE   |     1|
+|11    |LD     |    26|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------------+------------------------------+------+
+|      |Instance           |Module                        |Cells |
++------+-------------------+------------------------------+------+
+|1     |top                |                              |  3275|
+|2     |  U0               |CPU_no_mem                    |  3275|
+|3     |    cont           |control_unit                  |   222|
+|4     |    dflow          |cpu_dataflow                  |  3053|
+|5     |      CPU_alu      |alu                           |    15|
+|6     |        ARI        |Arith_Unit                    |    15|
+|7     |      PC           |program_counter               |    32|
+|8     |      alu_out_reg  |sync_register                 |    80|
+|9     |      hi           |sync_register_0               |    32|
+|10    |      instr_reg    |InstructionRegister           |   202|
+|11    |      lo           |sync_register_1               |    63|
+|12    |      mem_data_reg |sync_register_2               |    50|
+|13    |      mult         |multiplier                    |   435|
+|14    |        CONT       |control                       |   120|
+|15    |        MULT       |mult_dflow                    |   315|
+|16    |          MCND     |left_shift_reg                |    88|
+|17    |          MULT     |right_reg                     |    32|
+|18    |          PROD     |sync_register__parameterized2 |   195|
+|19    |      reg_A        |sync_register_3               |   256|
+|20    |      reg_B        |sync_register_4               |    32|
+|21    |      reg_file     |register_file                 |  1856|
++------+-------------------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:31 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:11 ; elapsed = 00:01:21 . Memory (MB): peak = 875.492 ; gain = 216.402
+Synthesis Optimization Complete : Time (s): cpu = 00:01:32 ; elapsed = 00:01:43 . Memory (MB): peak = 875.492 ; gain = 578.168
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 301 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 875.492 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 26 instances were transformed.
+  LD => LDCE: 26 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+215 Infos, 59 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:36 ; elapsed = 00:01:48 . Memory (MB): peak = 875.492 ; gain = 591.504
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 875.492 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.runs/design_1_CPU_no_mem_0_0_synth_1/design_1_CPU_no_mem_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1174] Renamed 20 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 875.492 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.runs/design_1_CPU_no_mem_0_0_synth_1/design_1_CPU_no_mem_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_CPU_no_mem_0_0_utilization_synth.rpt -pb design_1_CPU_no_mem_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 20 10:31:23 2024...

@@ -64,7 +64,6 @@ begin
     begin
         if (rst = '1') then
             state <= IFetch;
-            Mult_Reset <= '1';
         elsif (rising_edge(clk)) then
             case state is 
                 when IFetch =>

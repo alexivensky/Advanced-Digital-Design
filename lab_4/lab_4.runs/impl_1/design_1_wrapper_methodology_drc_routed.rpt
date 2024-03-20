@@ -1,0 +1,206 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Mar 20 10:37:33 2024
+| Host         : ALEXIVENSKY1668 running 64-bit major release  (build 9200)
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 34
++-----------+----------+-----------------------+------------+
+| Rule      | Severity | Description           | Violations |
++-----------+----------+-----------------------+------------+
+| TIMING-16 | Warning  | Large setup violation | 8          |
+| TIMING-20 | Warning  | Non-clocked latch     | 26         |
++-----------+----------+-----------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.037 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[11][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.037 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[26][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.039 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[13][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -1.041 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[24][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -1.057 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[9][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -1.153 ns between design_1_i/CPU_no_mem_0/U0/dflow/reg_A/Q_reg[28]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/reg_file/registers_reg[28][5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -1.250 ns between design_1_i/CPU_no_mem_0/U0/dflow/mult/MULT/PROD/Q_reg[0]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/mult/MULT/PROD/Q_reg[62]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -1.299 ns between design_1_i/CPU_no_mem_0/U0/dflow/mult/MULT/PROD/Q_reg[0]/C (clocked by clk_fpga_0) and design_1_i/CPU_no_mem_0/U0/dflow/mult/MULT/PROD/Q_reg[61]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[0] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[1] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[2] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[3] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUOp_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUOutEn_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUOutEn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUSrcA_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUSrcA_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[0] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[1] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[2] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/ALUSrcB_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/HIEn_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/HIEn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/IRWrite_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/IRWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/IorD_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/IorD_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/MemDataRegEn_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/MemDataRegEn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/MemWrite_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/MemWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[0] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[1] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[2] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/MemtoReg_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/Mult_Reset_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/Mult_Reset_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/PCSource_reg[0] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/PCSource_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/PCSource_reg[1] cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/PCSource_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/PCWrite_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/PCWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/RegAEn_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/RegAEn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/RegBEn_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/RegBEn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/RegDst_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/RegDst_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/RegWrite_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/RegWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch design_1_i/CPU_no_mem_0/U0/cont/SHAMT_Sel_reg cannot be properly analyzed as its control pin design_1_i/CPU_no_mem_0/U0/cont/SHAMT_Sel_reg/G is not reached by a timing clock
+Related violations: <none>
+
+

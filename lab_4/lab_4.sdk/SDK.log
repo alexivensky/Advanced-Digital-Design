@@ -1,0 +1,337 @@
+16:14:43 INFO  : Registering command handlers for SDK TCF services
+16:14:45 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\temp_xsdb_launch_script.tcl
+16:14:50 INFO  : XSCT server has started successfully.
+16:14:50 INFO  : Successfully done setting XSCT server connection channel  
+16:14:53 INFO  : Successfully done setting SDK workspace  
+16:14:53 INFO  : Processing command line option -hwspec C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper.hdf.
+16:22:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:22:19 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+16:22:19 INFO  : 'jtag frequency' command is executed.
+16:22:19 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:22:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+16:22:21 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+16:22:23 INFO  : Context for 'APU' is selected.
+16:22:23 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:22:23 INFO  : 'configparams force-mem-access 1' command is executed.
+16:22:23 INFO  : Context for 'APU' is selected.
+16:22:23 INFO  : 'stop' command is executed.
+16:22:25 INFO  : 'ps7_init' command is executed.
+16:22:25 INFO  : 'ps7_post_config' command is executed.
+16:22:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:22:25 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:22:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:22:26 INFO  : The application 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:22:26 INFO  : 'configparams force-mem-access 0' command is executed.
+16:22:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:22:26 INFO  : Memory regions updated for context APU
+16:22:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:22:27 INFO  : 'con' command is executed.
+16:22:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+con
+----------------End of Script----------------
+
+16:22:27 INFO  : Launch script is exported to file 'C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_cpu.elf_on_local.tcl'
+16:22:50 INFO  : Disconnected from the channel tcfchan#1.
+16:22:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:22:51 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+16:22:52 INFO  : 'jtag frequency' command is executed.
+16:22:52 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:22:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+16:22:54 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+16:22:54 INFO  : Context for 'APU' is selected.
+16:23:01 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:23:01 INFO  : 'configparams force-mem-access 1' command is executed.
+16:23:01 INFO  : Context for 'APU' is selected.
+16:23:01 INFO  : 'stop' command is executed.
+16:23:08 INFO  : 'ps7_init' command is executed.
+16:23:08 INFO  : 'ps7_post_config' command is executed.
+16:23:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:23:08 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:23:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:23:11 ERROR : Memory write error at 0x100000. AP transaction timeout
+16:23:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+----------------End of Script----------------
+
+16:24:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:24:49 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+16:24:49 INFO  : 'jtag frequency' command is executed.
+16:24:49 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:24:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+16:24:55 ERROR : fpga configuration failed. DONE PIN is not HIGH
+16:24:55 ERROR : Exception occured while running Program FPGA.
+java.lang.RuntimeException: fpga configuration failed. DONE PIN is not HIGH
+16:24:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+----------------End of Script----------------
+
+16:30:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:30:10 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+16:30:10 INFO  : 'jtag frequency' command is executed.
+16:30:10 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:30:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+16:30:13 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+16:30:13 INFO  : Context for 'APU' is selected.
+16:30:13 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:30:13 INFO  : 'configparams force-mem-access 1' command is executed.
+16:30:13 INFO  : Context for 'APU' is selected.
+16:30:14 INFO  : 'stop' command is executed.
+16:30:15 INFO  : 'ps7_init' command is executed.
+16:30:15 INFO  : 'ps7_post_config' command is executed.
+16:30:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:30:16 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:30:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:30:17 INFO  : The application 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:30:17 INFO  : 'configparams force-mem-access 0' command is executed.
+16:30:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:30:17 INFO  : Memory regions updated for context APU
+16:30:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:30:17 INFO  : 'con' command is executed.
+16:30:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+con
+----------------End of Script----------------
+
+16:30:17 INFO  : Launch script is exported to file 'C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_cpu.elf_on_local.tcl'
+18:14:32 INFO  : Disconnected from the channel tcfchan#2.
+18:14:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:14:48 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+18:14:48 INFO  : 'jtag frequency' command is executed.
+18:14:48 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:14:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+18:14:52 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:14:52 INFO  : Context for 'APU' is selected.
+18:15:00 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:15:00 INFO  : 'configparams force-mem-access 1' command is executed.
+18:15:00 INFO  : Context for 'APU' is selected.
+18:15:00 INFO  : 'stop' command is executed.
+18:15:02 INFO  : 'ps7_init' command is executed.
+18:15:02 INFO  : 'ps7_post_config' command is executed.
+18:15:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:15:02 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:15:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:15:03 INFO  : The application 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:15:03 INFO  : 'configparams force-mem-access 0' command is executed.
+18:15:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:15:03 INFO  : Memory regions updated for context APU
+18:15:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:15:04 INFO  : 'con' command is executed.
+18:15:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+con
+----------------End of Script----------------
+
+18:15:04 INFO  : Launch script is exported to file 'C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_cpu.elf_on_local.tcl'
+10:12:23 INFO  : Disconnected from the channel tcfchan#3.
+10:50:45 INFO  : Registering command handlers for SDK TCF services
+10:50:48 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\temp_xsdb_launch_script.tcl
+10:50:54 INFO  : XSCT server has started successfully.
+10:50:58 INFO  : Successfully done setting XSCT server connection channel  
+10:50:58 INFO  : Successfully done setting SDK workspace  
+10:50:58 INFO  : Processing command line option -hwspec C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper.hdf.
+10:50:58 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+10:51:07 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1710945509330,  Project:1710879159232
+10:51:07 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper.hdf.
+10:51:08 INFO  : Copied contents of C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+10:51:16 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+10:51:19 INFO  : 
+10:51:20 INFO  : Updating hardware inferred compiler options for cpu.
+10:51:21 INFO  : Clearing existing target manager status.
+10:55:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:55:26 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+10:55:26 INFO  : 'jtag frequency' command is executed.
+10:55:26 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:55:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+10:55:29 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+10:55:29 INFO  : Context for 'APU' is selected.
+10:55:29 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+10:55:29 INFO  : 'configparams force-mem-access 1' command is executed.
+10:55:29 INFO  : Context for 'APU' is selected.
+10:55:29 INFO  : 'stop' command is executed.
+10:55:31 INFO  : 'ps7_init' command is executed.
+10:55:31 INFO  : 'ps7_post_config' command is executed.
+10:55:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:55:31 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+10:55:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:55:32 INFO  : The application 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:55:32 INFO  : 'configparams force-mem-access 0' command is executed.
+10:55:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+10:55:32 INFO  : Memory regions updated for context APU
+10:55:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:55:33 INFO  : 'con' command is executed.
+10:55:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+con
+----------------End of Script----------------
+
+10:55:33 INFO  : Launch script is exported to file 'C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_cpu.elf_on_local.tcl'
+11:02:48 INFO  : Disconnected from the channel tcfchan#1.
+11:02:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:02:50 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+11:02:50 INFO  : 'jtag frequency' command is executed.
+11:02:50 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+11:02:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+11:02:52 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+11:02:52 INFO  : Context for 'APU' is selected.
+11:02:59 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+11:02:59 INFO  : 'configparams force-mem-access 1' command is executed.
+11:02:59 INFO  : Context for 'APU' is selected.
+11:02:59 INFO  : 'stop' command is executed.
+11:03:05 INFO  : 'ps7_init' command is executed.
+11:03:06 INFO  : 'ps7_post_config' command is executed.
+11:03:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+11:03:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+11:03:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+11:03:08 ERROR : Memory write error at 0x100000. AP transaction timeout
+11:03:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+----------------End of Script----------------
+
+11:03:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:03:31 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A8B88CA' is selected.
+11:03:31 INFO  : 'jtag frequency' command is executed.
+11:03:31 INFO  : Sourcing of 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+11:03:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1' command is executed.
+11:03:35 INFO  : FPGA configured successfully with bitstream "C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+11:03:35 INFO  : Context for 'APU' is selected.
+11:03:35 INFO  : Hardware design information is loaded from 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+11:03:35 INFO  : 'configparams force-mem-access 1' command is executed.
+11:03:35 INFO  : Context for 'APU' is selected.
+11:03:35 INFO  : 'stop' command is executed.
+11:03:37 INFO  : 'ps7_init' command is executed.
+11:03:37 INFO  : 'ps7_post_config' command is executed.
+11:03:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+11:03:37 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+11:03:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+11:03:38 INFO  : The application 'C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf' is downloaded to processor 'ps7_cortexa9_0'.
+11:03:38 INFO  : 'configparams force-mem-access 0' command is executed.
+11:03:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA" && level==0} -index 1
+fpga -file C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+loadhw -hw C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+dow C:/Users/alexivensky/ADDLabs/lab_4/lab_4.sdk/cpu/Debug/cpu.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+11:03:38 INFO  : Memory regions updated for context APU
+11:03:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+11:03:39 INFO  : 'con' command is executed.
+11:03:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A8B88CA"} -index 0
+con
+----------------End of Script----------------
+
+11:03:39 INFO  : Launch script is exported to file 'C:\Users\alexivensky\ADDLabs\lab_4\lab_4.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_cpu.elf_on_local.tcl'
