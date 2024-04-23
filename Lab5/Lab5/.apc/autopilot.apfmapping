@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="mmult.h" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult.h"/>
+    <originFiles name="mmult_accel.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_accel.cpp"/>
+    <originFiles name="mmult_test.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_test.cpp"/>
+    <originFiles name="mmult.h" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult.h"/>
+    <originFiles name="mmult_accel.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_accel.cpp"/>
+    <originFiles name="mmult_test.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_test.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="mmult_test.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_test.cpp"/>
+    <originFiles name="mmult_test.cpp" path="C:\Users\alexivensky\ADDLabs\Lab5\vhls\mmult_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

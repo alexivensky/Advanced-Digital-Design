@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="convolution.cpp" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\convolution.cpp"/>
+    <originFiles name="convolution.hpp" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\convolution.hpp"/>
+    <originFiles name="image.cpp" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\image.cpp"/>
+    <originFiles name="image.hpp" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\image.hpp"/>
+    <originFiles name="rock512.pgm" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\rock512.pgm"/>
+  </source>
+  <testbench>
+    <originFiles name="testbench.cpp" path="C:\Users\alexivensky\ADDLabs\lab6\vhls\testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
